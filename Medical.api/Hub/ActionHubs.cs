@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 
-namespace Medical.api.Hub
+namespace Medical.SignalR
 {
-    //public class ActionHubs:Hub
-    //{
-    //}
+    public class ActionHubs : Hub
+    {
+    }
 }
