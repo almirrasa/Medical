@@ -1,4 +1,29 @@
+var MyAllowSpecificOrigins = "myAllowSpecificOrigins";
+
+
 var builder = WebApplication.CreateBuilder(args);
+
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy(name: MyAllowSpecificOrigins,
+//                      policy =>
+//                      {
+//                          policy.WithOrigins("http://localhost:4200", "http://example.com",
+//                                              "http://www.contoso.com").AllowAnyHeader()
+//                                                  .AllowAnyMethod(); ;
+//                      });
+//});
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+                      policy =>
+                      {
+                          policy.AllowAnyOrigin()//WithOrigins("http://localhost:4200")
+                                                    .AllowAnyHeader()
+                                                    .AllowAnyMethod(); 
+                      });
+});
 
 // Add services to the container.
 
@@ -16,7 +41,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+app.UseCors();
 
 app.UseAuthorization();
 

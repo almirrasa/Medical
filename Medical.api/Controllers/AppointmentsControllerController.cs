@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Medical.api.Controllers
 {
     [ApiController]
+    //[EnableCors("myAllowSpecificOrigins")]
     [Route("[controller]")]
     public class AppointmentsController : ControllerBase
     {
